@@ -26,4 +26,11 @@ class window.Hand extends Backbone.Collection
     else score = possibleScores[1]
     score
 
+  bust: -> 
+
+    if @scores() > 21 
+    then result = true
+    else result = false
+    result
+
 
