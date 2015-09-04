@@ -7,6 +7,9 @@ class window.Hand extends Backbone.Collection
     @add(@deck.pop())
     @last()
 
+  stand: -> 
+    @.models[0].flip()
+    @.hit() while @.scores() < 17 
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
@@ -32,5 +35,7 @@ class window.Hand extends Backbone.Collection
     then result = true
     else result = false
     result
+
+
 
 

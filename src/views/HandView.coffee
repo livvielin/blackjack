@@ -13,6 +13,8 @@ class window.HandView extends Backbone.View
     @$el.append @collection.map (card) ->
       new CardView(model: card).$el
     @$('.score').text @collection.scores()
-    if @collection.bust() 
-    then alert("You Lose")
-
+    if @collection.bust() and @collection.get('isDealer')
+    then alert("You win. Dealer Loses.")
+    else if @collection.bust()
+    then alert("You lose. Dealer wins.")
+ 
