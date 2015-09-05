@@ -14,12 +14,6 @@ body {
   margin: 10px;
 }
 
-.covered {
-  background-image: url('../img/card-back2.png');
-  background-size: 100%;
-  font-size: 0px;
-}
-
 .hand {
   overflow: auto;
   width: 800px;
