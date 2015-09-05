@@ -9,6 +9,12 @@ class window.App extends Backbone.Model
     @get('playerHand').on 'checkPlayerBust', => @playerBust()
     @get('dealerHand').on('endGame', @outcome, @)
 
+  reset: ->
+    @get('playerHand').reset()
+    @get('playerHand').add(@get('deck').pop()).add(@get('deck').pop())
+    @get('dealerHand').reset()
+    @get('dealerHand').add(@get('deck').pop().flip()).add(@get('deck').pop())
+
   playerBust: -> 
     if @get('playerHand').scores() > 21
     then @set('winnerMessage', "BUST! YOU LOSE!")
@@ -35,3 +41,5 @@ class window.App extends Backbone.Model
     else if dealerScore == playerScore
     then @set('winnerMessage', "It's a tie.")
     else @set('winnerMessage', "YOU LOSE :(")
+
+
