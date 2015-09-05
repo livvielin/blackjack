@@ -13,7 +13,7 @@ window.AppView = (function(superClass) {
 
   AppView.prototype.events = {
     'click .new-game-button': function() {
-      return this.model.reset();
+      return this.newGame();
     },
     'click .hit-button': function() {
       return this.model.get('playerHand').hit();
@@ -30,6 +30,11 @@ window.AppView = (function(superClass) {
       };
     })(this));
     return this.render();
+  };
+
+  AppView.prototype.newGame = function() {
+    this.model.reset();
+    return $('.winMessage').remove();
   };
 
   AppView.prototype.displayWinner = function() {

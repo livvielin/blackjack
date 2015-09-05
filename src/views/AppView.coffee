@@ -7,13 +7,17 @@ class window.AppView extends Backbone.View
   '
 
   events:
-    'click .new-game-button': -> @model.reset()
+    'click .new-game-button': -> @newGame()
     'click .hit-button': -> @model.get('playerHand').hit()
     'click .stand-button': -> @model.get('dealerHand').stand()
 
   initialize: ->
     @model.on 'change', => @displayWinner()
     @render()
+
+  newGame: ->
+    @model.reset()
+    $('.winMessage').remove()
 
   displayWinner: -> 
     @$el.append("<div class='winMessage'>"+@model.get('winnerMessage')+"</div>")
