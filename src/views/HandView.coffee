@@ -6,12 +6,7 @@ class window.HandView extends Backbone.View
 
   initialize: ->
     @collection.on 'add remove change', => @render()
-    @collection.on 'checkPlayerBust', => @playerBust()
     @render()
-
-  playerBust: -> 
-    if @collection.scores() > 21
-    then console.log("player LOSES")
 
   render: ->
     @$el.children().detach()
@@ -19,6 +14,4 @@ class window.HandView extends Backbone.View
     @$el.append @collection.map (card) ->
       new CardView(model: card).$el
     @$('.score').text @collection.scores()
-    # if @collection.playerBust()
-    # then alert("You lose. Dealer wins.")
  

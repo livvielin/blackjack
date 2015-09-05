@@ -5,14 +5,20 @@ class window.App extends Backbone.Model
     @set 'deck', deck = new Deck()
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
+    @set 'winnerMessage', ""
+    @get('playerHand').on 'checkPlayerBust', => @playerBust()
     @get('dealerHand').on('endGame', @outcome, @)
+
+  playerBust: -> 
+    if @get('playerHand').scores() > 21
+    then @set('winnerMessage', "BUST! YOU LOSE!")
 
   outcome: ->
     playerScore = @get('playerHand').scores()
     dealerScore = @get('dealerHand').scores()
 
     if dealerScore > 21 or dealerScore < playerScore
-    then console.log("dealer loses")
+    then @set('winnerMessage', "YOU WIN!")
     else if dealerScore == playerScore
-    then console.log("TIEEE")
-    else console.log("player loses!")
+    then @set('winnerMessage', "It's a tie.")
+    else @set('winnerMessage', "YOU LOSE :(")
