@@ -12,7 +12,7 @@ class window.AppView extends Backbone.View
     'click .stand-button': -> @handleStand()
 
   initialize: ->
-    @model.on 'change', => @displayWinner()
+    @model.on 'change:winnerMessage', => @displayWinner()
     @render()
 
   handleHit: ->
