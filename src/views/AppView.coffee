@@ -16,7 +16,7 @@ class window.AppView extends Backbone.View
     @render()
 
   displayWinner: -> 
-    @$el.append("<div>"+@model.get('winnerMessage')+"</div>")
+    @$el.append("<div class='winMessage'>"+@model.get('winnerMessage')+"</div>")
 
   render: ->
     @$el.children().detach()

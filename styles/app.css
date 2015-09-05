@@ -1,6 +1,7 @@
 body {
   font: 300 16px/22px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-image: url('../img/wood-background.jpg');
+  background-size: 100%;
 }
 
 .card {
@@ -31,8 +32,24 @@ button {
   color: white;
   background-color: #F66;
   border-radius: 10px;
+  border-color: white;
 }
 
 .new-game-button {
   width: 125px;
+}
+
+.winMessage {
+  font-weight: bold;
+  font-size: 35px;
+  color: #F66;
+  background-color: white;
+  border-radius: 10px;
+  border-color: #F66;
+  border-width: 5px;
+  border-style: solid;
+  padding: 20px;
+  margin: 20px 20px 20px 0;
+  width: 350px;
+  text-align: center;
 }
