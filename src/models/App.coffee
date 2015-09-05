@@ -20,7 +20,6 @@ class window.App extends Backbone.Model
     if @get('playerHand').scores() > 21
     then @set('winnerMessage', "BUST! YOU LOSE!")
 
-# still needs to handle blackjack
   outcome: ->
     playerScore = @get('playerHand').scores()
     dealerScore = @get('dealerHand').scores()
