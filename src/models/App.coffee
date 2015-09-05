@@ -14,6 +14,7 @@ class window.App extends Backbone.Model
     @get('playerHand').add(@get('deck').pop()).add(@get('deck').pop())
     @get('dealerHand').reset()
     @get('dealerHand').add(@get('deck').pop().flip()).add(@get('deck').pop())
+    @set('winnerMessage', "")
 
   playerBust: -> 
     if @get('playerHand').scores() > 21

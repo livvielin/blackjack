@@ -33,7 +33,6 @@ class window.Hand extends Backbone.Collection
     if possibleScores[1] > 21 
     then score = possibleScores[0] 
     else score = possibleScores[1]
-    console.log(possibleScores)
     score
 
   bust: -> 
