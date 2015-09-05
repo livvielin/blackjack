@@ -5,6 +5,7 @@ class window.App extends Backbone.Model
     @set 'deck', deck = new Deck()
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
+    @set 'game-over', false
     @set 'winnerMessage', ""
     @get('playerHand').on 'checkPlayerBust', => @playerBust()
     @get('dealerHand').on('endGame', @outcome, @)
@@ -15,12 +16,15 @@ class window.App extends Backbone.Model
     @get('dealerHand').reset()
     @get('dealerHand').add(@get('deck').pop().flip()).add(@get('deck').pop())
     @set('winnerMessage', "")
+    @set('game-over', false)
 
   playerBust: -> 
     if @get('playerHand').scores() > 21
-    then @set('winnerMessage', "BUST! YOU LOSE!")
+        @set('winnerMessage', "BUST! YOU LOSE!")
+        @set('game-over', true)
 
   outcome: ->
+    @set('game-over', true)
     playerScore = @get('playerHand').scores()
     dealerScore = @get('dealerHand').scores()
 
