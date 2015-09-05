@@ -6,10 +6,16 @@ class window.Hand extends Backbone.Collection
   hit: ->
     @add(@deck.pop())
     @last()
+    @trigger('checkPlayerBust', this)
+
+  dealerHit: ->
+    @add(@deck.pop())
+    @last()
 
   stand: -> 
-    @.models[0].flip()
-    @.hit() while @.scores() < 17 
+    @models[0].flip()
+    @dealerHit() while @scores() < 17 
+    @trigger('endGame', this)
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
@@ -31,7 +37,7 @@ class window.Hand extends Backbone.Collection
 
   bust: -> 
 
-    if @scores() > 21 
+    if @scores() > 21
     then result = true
     else result = false
     result
