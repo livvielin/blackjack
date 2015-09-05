@@ -5,9 +5,9 @@ class window.Hand extends Backbone.Collection
 
   hit: ->
     @add(@deck.pop())
-    @last()
     @trigger('checkPlayerBust', this)
-
+    @last()
+   
   dealerHit: ->
     @add(@deck.pop())
     @last()

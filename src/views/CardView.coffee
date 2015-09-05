@@ -1,9 +1,11 @@
 class window.CardView extends Backbone.View
   className: 'card'
 
+  #to make sure deck collection cards correspond to the right image card, in the template
+  #properties on cards to correspond with image name;
   template: _.template '<img src="img/cards/<%= rankName %>-<%= suitName %>.png">'
 
-  template2: _.template '<img src="img/card-back2.png">'
+  template2: _.template '<img src="img/card-back.png">'
 
   initialize: -> 
     @render()
