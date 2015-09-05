@@ -58,3 +58,8 @@ button {
   margin-right: auto;
   margin-left: auto;
 }
+
+img {
+  height: 100%;
+  width: 100%;
+}
