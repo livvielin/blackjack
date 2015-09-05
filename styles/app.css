@@ -1,7 +1,7 @@
 body {
   font: 300 16px/22px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-image: url('../img/wood-background.jpg');
-  background-size: 100%;
+  background-size: cover;
   text-align: center;
 }
 
